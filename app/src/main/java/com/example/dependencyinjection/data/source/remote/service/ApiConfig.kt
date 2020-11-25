@@ -1,4 +1,4 @@
-package com.example.dependencyinjection.data.remote.service
+package com.example.dependencyinjection.data.source.remote.service
 
 import com.example.dependencyinjection.utils.BASE_URl
 import okhttp3.OkHttpClient

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Dependency Injection</string>
+    <string name="loading">Loading</string>
 </resources>
