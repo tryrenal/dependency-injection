@@ -1,4 +1,4 @@
-package com.example.dependencyinjection.data.response
+package com.example.dependencyinjection.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
