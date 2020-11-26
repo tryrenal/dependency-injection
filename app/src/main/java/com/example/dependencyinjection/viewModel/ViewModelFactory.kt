@@ -2,20 +2,13 @@ package com.example.dependencyinjection.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.dependencyinjection.di.Injection
+import com.example.dependencyinjection.di.AppScope
 import com.example.dependencyinjection.domain.usecase.SportUseCase
 import com.example.dependencyinjection.ui.MainViewModel
+import javax.inject.Inject
 
-class ViewModelFactory private constructor(private val useCase: SportUseCase) : ViewModelProvider.NewInstanceFactory(){
-    companion object {
-        @Volatile
-        private var instance: ViewModelFactory? = null
-
-        fun getInstance(): ViewModelFactory =
-            instance ?: synchronized(this){
-                instance ?: ViewModelFactory(Injection.provideUseCase())
-            }
-    }
+@AppScope
+class ViewModelFactory @Inject constructor(private val useCase: SportUseCase) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
