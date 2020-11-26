@@ -49,6 +49,9 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation "com.google.android.material:material:$materialVersion"
 
+    implementation "androidx.activity:activity-ktx:$activityKtxVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
     // architecture components
     implementation "androidx.core:core-ktx:$coreVersion"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
@@ -69,9 +72,7 @@ dependencies {
     //hilt
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
-    //opsional untuk support Jetpack
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltJetpackVersion"
-    implementation "androidx.hilt:hilt-work:$hiltJetpackVersion"
     kapt "androidx.hilt:hilt-compiler:$hiltJetpackVersion"
 
 }

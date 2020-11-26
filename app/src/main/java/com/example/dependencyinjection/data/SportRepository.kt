@@ -9,22 +9,13 @@ import com.example.dependencyinjection.vo.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class SportRepository (
+@Singleton
+class SportRepository @Inject constructor(
  private val remote: RemoteDataSource
 ) : ISportRepository {
-
-    companion object {
-        @Volatile
-        private var instance: SportRepository? = null
-
-        fun getInstance(
-            remote: RemoteDataSource
-        ): SportRepository =
-            instance ?: synchronized(this){
-                instance ?: SportRepository(remote)
-            }
-    }
 
     override fun getSports(): Flow<Resource<List<Sport>>> = flow {
         when(val response = remote.getSports().first()){
