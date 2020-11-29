@@ -14,18 +14,6 @@ class SportRepository (
  private val remote: RemoteDataSource
 ) : ISportRepository {
 
-    companion object {
-        @Volatile
-        private var instance: SportRepository? = null
-
-        fun getInstance(
-            remote: RemoteDataSource
-        ): SportRepository =
-            instance ?: synchronized(this){
-                instance ?: SportRepository(remote)
-            }
-    }
-
     override fun getSports(): Flow<Resource<List<Sport>>> = flow {
         when(val response = remote.getSports().first()){
             is ApiResponse.Success -> {

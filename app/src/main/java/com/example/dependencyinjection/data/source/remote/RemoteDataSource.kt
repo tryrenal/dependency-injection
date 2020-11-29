@@ -11,16 +11,6 @@ class RemoteDataSource(
         private val apiService: ApiService
 ) {
 
-    companion object {
-        @Volatile
-        private var instance: RemoteDataSource? = null
-
-        fun getInstance(apiService: ApiService) : RemoteDataSource =
-            instance ?: synchronized(this) {
-                instance ?: RemoteDataSource(apiService)
-            }
-    }
-
     fun getSports() : Flow<ApiResponse<List<SportResponse>>> {
         return flow {
             try {
